@@ -34,13 +34,21 @@ app.use(cors(corsOptions))
 app.use(express.json())
 
 // Health check endpoint
-app.get("/health", (req, res) => {
+app.get("/", (req, res) => {
   res.json({
     status: "healthy",
     timestamp: new Date().toISOString(),
     stats: bookService.getStats(),
   })
 })
+
+// app.get("/health", (req, res) => {
+//   res.json({
+//     status: "healthy",
+//     timestamp: new Date().toISOString(),
+//     stats: bookService.getStats(),
+//   })
+// })
 
 // Books search endpoint
 app.get("/api/books", async (req, res) => {
