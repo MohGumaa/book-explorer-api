@@ -1,11 +1,11 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server/dist/index.js",
   "scripts": {
-    "server": "tsx watch server/index.ts",
-    "server:build": "tsc --project server/tsconfig.json",
-    "server:start": "node server/dist/index.js"
+    "dev": "tsx watch server/index.ts",
+    "build": "tsc --project server/tsconfig.json",
+    "start": "node server/dist/index.js"
   },
   "keywords": [],
   "author": "",
