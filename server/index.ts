@@ -39,16 +39,18 @@ app.get("/", (req, res) => {
     status: "healthy",
     timestamp: new Date().toISOString(),
     stats: bookService.getStats(),
+    message: "Welcome to the Book API!",
+    endpoints: {
+      "GET /api/books": "?page=1&search=tolstoy",
+      "GET /api/books/:id": "Fetch book details by ID",
+      "GET /api/books/popular/top": "?limit=10",
+      "POST /api/favorites": "Add a book to favorites",
+      "DELETE /api/favorites": "Remove a book from favorites",
+      "GET /api/favorites/:userId": "?details=true"
+    }
   })
 })
 
-// app.get("/health", (req, res) => {
-//   res.json({
-//     status: "healthy",
-//     timestamp: new Date().toISOString(),
-//     stats: bookService.getStats(),
-//   })
-// })
 
 // Books search endpoint
 app.get("/api/books", async (req, res) => {
